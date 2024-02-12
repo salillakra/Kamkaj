@@ -39,6 +39,6 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## Contact
 
-For any inquiries or suggestions regarding Kamkaj, feel free to reach out to us at [your-email@example.com](mailto:salillakra.secure@proton.me).
+For any inquiries or suggestions regarding Kamkaj, feel free to reach out to us at [salillakra.secure@proton.me](mailto:salillakra.secure@proton.me).
 
 Happy task managing! 🚀
