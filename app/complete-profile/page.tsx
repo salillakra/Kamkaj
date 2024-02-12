@@ -51,8 +51,8 @@ const page = () => {
       <div className="flex justify-center my-5">
         <Image
           src="/userimage.jpg"
-          width={100}
-          height={100}
+          width={500}
+          height={500}
           alt="user image"
           className="rounded-full object-cover w-48 h-48"
         />
