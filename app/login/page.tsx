@@ -22,6 +22,14 @@ import OrDivider from "@/components/login/OrDivider";
 import Image from "next/image";
 import Footer from "@/components/login/Footer";
 import { useRouter } from "next/navigation";
+
+// importing auth stuff
+import { GoogleAuthProvider, getRedirectResult } from "firebase/auth";
+import { getAuth, signInWithRedirect } from "firebase/auth";
+import { app } from "@/Firebase/Firebase";
+import { useEffect } from "react";
+const provider = new GoogleAuthProvider();
+
 const formSchema = z.object({
   email: z
     .string()
@@ -35,6 +43,7 @@ const formSchema = z.object({
 
 const page = () => {
   const router = useRouter();
+  const auth = getAuth(app);
 
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
@@ -51,6 +60,11 @@ const page = () => {
     console.log(values);
     router.push("/complete-profile");
   }
+
+  const LoginWithGoogle = () => {
+    signInWithRedirect(auth, provider);
+  };
+
   return (
     <div>
       <BrandHead />
@@ -109,10 +123,13 @@ const page = () => {
       <OrDivider />
       {/*google sign in  */}
       <div className="flex justify-center items-center space-x-2">
-        <div className="border-[2px] transition-all hover:border-white border-gray-500 h-10 w-32 rounded-lg grid place-content-center cursor-pointer">
+        <div
+          onClick={LoginWithGoogle}
+          className="border-[2px] transition-all hover:border-white border-gray-500 h-10 w-32 rounded-lg grid place-content-center cursor-pointer"
+        >
           <Image
             className=" z-10"
-            src="/google.png"
+            src="/google.svg"
             height={30}
             width={30}
             alt="google logo"
